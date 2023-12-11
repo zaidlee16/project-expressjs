@@ -1,0 +1,104 @@
+<html lang="en">
+  <head>
+    <title>Lee Market - Edit</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+  </head>
+
+  <body>
+    <div class="container my-5">
+      <div class="shadow-lg p-5">
+        <h1 class="mb-4">Edit <b>Product</b></h1>
+        <form
+          action="/update/<%= id %>"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="productImage">Product Image</label>
+            <input
+              type="file"
+              class="form-control-file my-3"
+              id="productImage"
+              name="product_image"
+              accept="image/*"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input
+              type="text"
+              class="form-control my-3"
+              id="productName"
+              name="product_name"
+              value="<%= product_name %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Product Types</label> <br />
+            <label>
+              <input type="radio" name="product_type" id="food" value="food" <%
+              if (product_type === "food") { %>checked<% } %> /> Foods
+            </label>
+            <br />
+            <label>
+              <input type="radio" name="product_type" id="drink" value="drink"
+              <% if (product_type === "drink") { %>checked<% } %> /> Drinks
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="productPrice">Product Price</label>
+            <input
+              type="text"
+              class="form-control my-3"
+              id="productPrice"
+              name="product_price"
+              value="<%= product_price %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control my-3"
+              id="description"
+              name="description"
+              rows="4"
+            >
+<%= description %>
+            </textarea>
+          </div>
+
+          <a href="/" class="btn btn-secondary pb-2 pt-2 px-4 mt-4">
+            <i></i> Back
+          </a>
+
+          <button type="submit" class="btn btn-primary pb-2 pt-2 px-4 mt-4">
+            Update Product
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
